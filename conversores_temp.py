@@ -15,7 +15,7 @@ def converter_temperatura(de_temperatura: str, para_temperatura: str, valor: int
     if de_temperatura == "CELSIUS":
         match para_temperatura:
             case "KELVIN":
-                return valor + 273
+                return valor + 273.15
             case "FAHRENHEIT":
                 return (valor * 1.8) + 32
     elif de_temperatura == "FAHRENHEIT":
@@ -23,11 +23,11 @@ def converter_temperatura(de_temperatura: str, para_temperatura: str, valor: int
             case "CELSIUS":
                 return (valor - 32) / 1.8
             case "KELVIN":
-                return ((valor - 32) * (5/9)) + 273
+                return ((valor - 32) * (5/9)) + 273.15
     elif de_temperatura == "KELVIN":
         match para_temperatura:
             case "CELSIUS":
-                return valor - 273
+                return valor - 273.15
             case "FAHRENHEIT":
                 return 32 + (valor - 273) * 18
             
