@@ -3,7 +3,7 @@ def converter_temperatura(de_temperatura: str, para_temperatura: str, valor: int
     de_temperatura = de_temperatura.upper()
     para_temperatura = para_temperatura.upper()
 
-    if not all(isinstance(valor, str) in (de_temperatura, para_temperatura)):
+    if not all(isinstance(unidade, str) for unidade in (de_temperatura, para_temperatura)):
         raise TypeError("As unidades devem ser textos em string")
     elif not (de_temperatura in unidades and para_temperatura in unidades):
         raise ValueError("Escala de temperatura inválida")
@@ -29,6 +29,6 @@ def converter_temperatura(de_temperatura: str, para_temperatura: str, valor: int
             case "CELSIUS":
                 return valor - 273.15
             case "FAHRENHEIT":
-                return 32 + (valor - 273) * 18
+                return (valor - 273.15) * 1.8 + 32
             
     return valor
