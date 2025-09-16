@@ -22,8 +22,24 @@ from conversores_temp import converter_temperatura
         ("FAHRENHEIT", "CELSIUS", 50,   10),
         # Caso 6: Fahrenheit para Kelvin
         ("FAHRENHEIT", "KELVIN", 50,    283.15),
+
+        # Caso 7: Primeira unidade em lowercase
+        ("fahrenheit", "KELVIN", 50,    283.15),
+        # Caso 8: Segunda unidade em lowercase
+        ("CELSIUS", "fahrenheit", 50,   122),
+
+        # Caso 9: Conversão de Celsius para Celsius
+        ("CELSIUS", "CELSIUS", 50,      50),
+        # Caso 10: Conversão de Kelvin para Kelvin
+        ("KELVIN", "KELVIN", 50,        50),
+        # Caso 11: Conversão de Fahrenheit para Fahrenheit
+        ("FAHRENHEIT", "FAHRENHEIT", 50,    50),
     ],
-    ids = ["kelvin_celsius", "kelvin_fahrenheit", "celsius_kelvin", "celsius_fahrenheit", "fahrenheit_celsius", "fahrenheit_kelvin"]
+    ids = [ "kelvin_celsius", "kelvin_fahrenheit", "celsius_kelvin",
+            "celsius_fahrenheit", "fahrenheit_celsius", "fahrenheit_kelvin",
+            "unidade1_lowercase", "unidade2_lowercase", "calsius_celsius",
+            "kelvin_kelvin", "fahrenheit_fahrenheit"
+           ]
 )
 def test_converter_temperatura_validos(de_temperatura, para_temperatura, valor, resultado_esperado):
     resultado = converter_temperatura(de_temperatura, para_temperatura, valor)
